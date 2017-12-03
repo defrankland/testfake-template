@@ -2,7 +2,7 @@
 Go templates for creating fakes for testing. This repo mostly exists for my reference. 
 
 # Why Fake?
-Go doesn't force you to put all your code in a class. That's good, depending on who you ask. Whether for or against procedural code, it's a fact that mocking OOP objects can forces abstracted implementations where is isn't necessariy a need for abstraction (i.e. no dynamic behavior). In my experience, that it also prevents you from doing good integration tests, as you have to swap out the entire object instead of just the piece that can't be tested easily. 
+Go doesn't force you to put all your code in a class. That's good, depending on who you ask. Whether for or against procedural code, it's a fact that mocking OOP objects can force abstracted implementations where there isn't necessariy a need for abstraction (i.e. no dynamic behavior). In my experience, that it also prevents you from doing good integration tests, as you have to swap out the entire object instead of just the piece that can't be tested easily. 
 
 The sticking point that most devs have about fakes in go is that you have to define your function as a `var`:
 `var MyFunc = func(){...}`
