@@ -16,3 +16,8 @@ This is just an example of my "most robust" setup for faking (meaning it's a lot
 `SetReturns()` is used to set the return values that the fake function returns. 
 
 Also in this repo, package `mypkg` shows how to set up your functions to fake. 
+
+# fakeservertemplate.go
+This is a setup for a fake HTTP server. Replace all the `ROUTE1, ROUTE2` stuff. Call `InitServer()` to start. Call `AddApiTransaction()` to add another anticipated call to a route prior to running the test. Check the data in the `Api` RouteCall array to verify the results.  
+
+Also note, I used the enum with an array setup here, you could probably switch to a map which would make it easier to add routes. Your preference. 
