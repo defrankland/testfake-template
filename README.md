@@ -2,16 +2,16 @@
 Go templates for creating fakes for testing. This repo mostly exists for my reference. 
 
 # Why Fake?
-Go doesn't force you to put all your code in a class. That's good, depending on who you ask. Whether for or against procedural code, it's a fact that mocking OOP objects can force abstracted implementations where there isn't necessariy a need for abstraction (i.e. no dynamic behavior). In my experience, that also prevents you from doing good integration tests, as you have to swap out the entire object instead of just the piece that can't be tested easily. 
+Fakes can be used instead of mocks. The idea is to replace a function rather than a whole class. Sometimes you want don't want to remove all of your imported code for writing integration tests around a module, but just the parts that would be impossible to test. Sometimes you don't want to write maintain interfaces and a factory (or other creational pattern) for something that you know will never need that level of abstraction (i.e. no dynamic behavior). Sometimes a problem domain is better solved via procedural code than OOP.  
 
 The sticking point that most devs have about fakes in go is that you have to define your function as a `var`:
 
 `var MyFunc = func(){...}`
 
-And someone is going to break that by inadvertently reassigning the function. Yeah, that would be bad, but that's all the more reason to support a working agreement to maintain good integration tests. Someone is going to break your code no matter how hard you try to prevent it, probably with git rebase. I'm sure there's lots more things to discuss on this subject, but I'd just end up trying to make a case for C-style header files and I'm sure no one wants to hear that.  
+Someone might inadvertently reassigning the function -- all the more reason to have good integration tests where everything isn't mocked out one level down!! Personally I prefer having header files to implement fakes as in C, but hey, sometimes you have to get all javascript-y. 
 
 # Files 
-The sections below describe the two fake templates in this repo. They're not really templates, they're guides. 
+The sections below describe the two fake templates in this repo. They're not really templates, they're examples.
 
 ## faketemplate.go 
 This is just an example of my "most robust" setup for faking (meaning it's a lot of stuff you might not need. Use only the parts you need). Replace all the `Func1` and `Func2` stuff before using. 
